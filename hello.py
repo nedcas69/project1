@@ -18,4 +18,4 @@ x = 30.2
 type(x)
 print(x)
 
-x = 'Helloss'
+x = 'Hellodxxdss'
