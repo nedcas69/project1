@@ -17,3 +17,5 @@ type(x)
 x = 30.2
 type(x)
 print(x)
+
+x = 'Hello'
