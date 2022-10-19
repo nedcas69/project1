@@ -1,11 +1,13 @@
 from turtle import *
 speed(100)
-colors = ['black', 'red', 'black', 'red']
+colors = ['black', 'red']
 bgcolor('white')
 
 for i in range(1000):
-    pencolor(colors[i%4])
+    pencolor(colors[i%2])
     width(i//100+1)
-    forward(i)
-    left(9999)
+   
+    for t in range(1000):
+        forward(i-t+2)
+        left(i-t+1)
 done
