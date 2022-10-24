@@ -9,7 +9,7 @@ special_chars = string.punctuation
 alphabet = letters + digits + special_chars
 
 # fix password length
-pwd_length = 5
+pwd_length = 8
 
 # generate a password string
 pwd = ''
