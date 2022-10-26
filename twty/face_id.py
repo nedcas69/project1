@@ -12,8 +12,8 @@ import numpy as np
 # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
 
 # Get a reference to webcam #0 (the default one)
-video_capture = cv2.VideoCapture(0)
-
+video_capture = cv2.VideoCapture('rtsp://92193:Bb123456@167.124.20.3:554/ISAPI/Streaming/Channels/101')
+#video_capture = cv2.VideoCapture(0)
 # Load a sample picture and learn how to recognize it.
 Shax_image = face_recognition.load_image_file("/home/oo7/project1/project1/twty/1.jpg")
 Shax_face_encoding = face_recognition.face_encodings(Shax_image)[0]
@@ -51,7 +51,7 @@ while True:
         rgb_small_frame = small_frame[:, :, ::-1]
         
         # Find all the faces and face encodings in the current frame of video
-        face_locations = face_recognition.face_locations(rgb_small_frame)
+        face_locations = face_recognition.face_locations(rgb_small_frame, model="cnn")
         face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
 
         face_names = []
