@@ -12,8 +12,10 @@ import numpy as np
 # specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
 
 # Get a reference to webcam #0 (the default one)
-video_capture = cv2.VideoCapture('rtsp://92193:Bb123456@167.124.20.3:554/ISAPI/Streaming/Channels/101')
-#video_capture = cv2.VideoCapture(0)
+#video_capture = cv2.VideoCapture('rtsp://92193:Bb123456@167.124.20.3:554/ISAPI/Streaming/Channels/101')
+video_capture = cv2.VideoCapture(0)
+#video_capture.set(3, 640) # set video widht
+#video_capture.set(4, 360) # set video height
 # Load a sample picture and learn how to recognize it.
 Shax_image = face_recognition.load_image_file("/home/oo7/project1/project1/twty/1.jpg")
 Shax_face_encoding = face_recognition.face_encodings(Shax_image)[0]
@@ -51,8 +53,8 @@ while True:
         rgb_small_frame = small_frame[:, :, ::-1]
         
         # Find all the faces and face encodings in the current frame of video
-        face_locations = face_recognition.face_locations(rgb_small_frame, model="cnn")
-        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+        face_locations = face_recognition.face_locations(rgb_small_frame, model="hog")
+        face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations, num_jitters = 1, model="small" )
 
         face_names = []
         for face_encoding in face_encodings:
@@ -60,10 +62,10 @@ while True:
             matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
             name = "Unknown"
 
-            # # If a match was found in known_face_encodings, just use the first one.
-            # if True in matches:
-            #     first_match_index = matches.index(True)
-            #     name = known_face_names[first_match_index]
+            # If a match was found in known_face_encodings, just use the first one.
+            #if True in matches:
+                # first_match_index = matches.index(True)
+                # name = known_face_names[first_match_index]
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
