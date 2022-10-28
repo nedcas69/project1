@@ -8,6 +8,6 @@ while polling_active:
     if yes_no == 'no':
         polling_active = False
 
-print("\n--- Poll Results ---")
+print("\n--- Cписок желаний на отпуск ---")
 for name, response in responses.items():
     print(f"{name} хотел бы отдохнуть в {response}.")
