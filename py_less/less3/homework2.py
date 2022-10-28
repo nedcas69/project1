@@ -5,6 +5,7 @@ while polling_active:
     response = input('Где бы вы хотели отдохнуть в этот отпуск?: ')
     responses[name] = response
     yes_no = input('Продолжить опрос? (yes/no)')
+    
     if yes_no == 'no':
         polling_active = False
 
