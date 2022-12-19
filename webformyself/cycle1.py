@@ -7,8 +7,15 @@
 #     print('\n')
      
 # таблица умножений
-for i in range(1,10):
-    for j in range(2,10):
-        print(f'{i} * {j} = {i*j}\t', end=' ')
+def tablica(i=10):
+    for i in range(1,i):
+        for j in range(2,10):
+            print(f'{i} * {j} = {i*j}\t')
     
-    print('') 
+        print('') 
+
+user_input = input('Если хотите введите число до которой будет выводится таблица умножений:  ')
+if user_input != '':
+    tablica(i=int(user_input)+1)
+else:
+    tablica()
